@@ -1,0 +1,47 @@
+name = "pyxel"
+entrypoint = "main.py"
+extensions = [
+  "py"
+]
+languages = [
+  "python3",
+]
+packages = [
+  "libtk8.6",
+  "libevent-dev",
+  "gcc",
+  "libglfw3-dev",
+  "portaudio19-dev",
+  "libsdl2-image-2.0-0",
+]
+popularity = 5.0
+setup = [
+  "/opt/virtualenvs/python3/bin/python3 -m pip install glfw",
+  "/opt/virtualenvs/python3/bin/python3 -m pip install git+https://github.com/amasad/pyxel",
+]
+[run]
+command = [
+  "python3",
+  "-B",
+  "main.py"
+]
+
+[tests]
+
+  [tests.0]
+  code = "print(__name__)"
+  output = "__main__\n"
+
+  [tests.hello]
+  code = "print(\"hello\")"
+  output = "hello\n"
+
+  [tests.pyxel]
+  code = "import pyxel"
+  output = ""
+
+[languageServer]
+command = [
+  "pyls",
+  "-v"
+]

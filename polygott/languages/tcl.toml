@@ -1,0 +1,35 @@
+name = "tcl"
+entrypoint = "main.tcl"
+extensions = [
+  "tcl"
+]
+packages = [
+  "pkg-config",
+  "tcl8.6",
+  "tklib",
+  "tcllib",
+  "tcl-dev"
+]
+setup = [
+  "cp /gocode/src/github.com/replit/prybar/languages/tcl/tcl.pc /usr/lib/pkgconfig/tcl.pc",
+  "/usr/bin/build-prybar-lang.sh tcl"
+]
+
+versionCommand = [
+  "/bin/bash",
+  "-c",
+  "echo \"puts [list tcl $tcl_version]\" | tclsh8.6"
+]
+
+[run]
+command = [
+  "prybar-tcl",
+  "-q",
+  "./main.tcl"
+]
+
+[tests]
+
+  [tests.hello]
+  code = "puts {hello}"
+  output = "hello\n"

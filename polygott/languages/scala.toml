@@ -1,0 +1,33 @@
+name = "scala"
+entrypoint = "Main.scala"
+extensions = [
+  "scala"
+]
+packages = [
+  "openjdk-11-jdk"
+]
+setup = [
+  "wget -nv https://downloads.lightbend.com/scala/2.13.1/scala-2.13.1.tgz",
+  "tar -xf scala-2.13.1.tgz",
+  "cp -R   scala-2.13.1/bin/*     /usr/local/bin/",
+  "cp -R   scala-2.13.1/lib/*     /usr/local/lib/",
+  "rm -rf  scala-2.13.1/",
+  "/usr/bin/build-prybar-lang.sh scala"
+]
+
+[compile]
+command = [
+  "scalac"
+]
+
+[run]
+command = [
+  "scala",
+  "Main"
+]
+
+[tests]
+
+  [tests.hello]
+  code = "object Main { def main(args: Array[String]) { println(\"Hello, world!\") } }\n"
+  output = "Hello, world!\n"

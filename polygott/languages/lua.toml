@@ -1,0 +1,28 @@
+name = "lua"
+entrypoint = "main.lua"
+extensions = [
+  "lua"
+]
+packages = [
+  "lua5.1",
+  "liblua5.1-0",
+  "liblua5.1-bitop0",
+  "lua-socket",
+  "luarocks"
+]
+setup = [
+  "luarocks install formatter && luarocks install metalua && luarocks install penlight",
+  "/usr/bin/build-prybar-lang.sh lua"
+]
+
+[run]
+command = [
+  "lua",
+  "./main.lua"
+]
+
+[tests]
+
+  [tests.hello]
+  code = "print(\"hello\")"
+  output = "hello\n"

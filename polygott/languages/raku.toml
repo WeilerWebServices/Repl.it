@@ -1,0 +1,37 @@
+name = "raku"
+entrypoint = "main.raku"
+extensions = [
+  "p6",
+  "raku"
+]
+aptKeys = [
+  "379CE192D401AB61"
+]
+aptRepos = [
+  "deb https://dl.bintray.com/nxadm/rakudo-pkg-debs bionic main"
+]
+packages = [
+  "libssl-dev",
+  "rakudo-pkg"
+]
+setup = [
+  "ln -s /opt/rakudo-pkg/bin/perl6 /usr/local/bin/perl6",
+  "ln -s /opt/rakudo-pkg/bin/raku /usr/local/bin/raku",
+  "ln -s /opt/rakudo-pkg/bin/nqp /usr/local/bin/nqp",
+  "ln -s /opt/rakudo-pkg/bin/moar /usr/local/bin/moar",
+  "ln -s /opt/rakudo-pkg/bin/zef /usr/local/bin/zef",
+  "zef install Linenoise"
+]
+
+
+[run]
+command = [
+  "raku",
+  "./main.raku"
+]
+
+[tests]
+
+  [tests.hello]
+  code = "say 'hello world';"
+  output = "hello world\n"

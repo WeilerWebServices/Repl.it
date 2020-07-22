@@ -1,0 +1,37 @@
+name = "ruby"
+entrypoint = "main.rb"
+extensions = [
+  "rb"
+]
+packages = [
+  "build-essential",
+  "rake-compiler",
+  "ruby-dev",
+  "ruby",
+  "rubygems-integration",
+  "rubygems",
+  "libsqlite3-dev",
+]
+setup = [
+  "gem install --source http://rubygems.org rspec:3.5 stripe rufo sinatra",
+  "gem install solargraph -v 0.38.1",
+  "/usr/bin/build-prybar-lang.sh ruby"
+]
+
+[run]
+command = [
+  "ruby",
+  "main.rb"
+]
+
+[tests]
+
+  [tests.hello]
+  code = "puts \"hello\""
+  output = "hello\n"
+
+[languageServer]
+command = [
+  "solargraph",
+  "stdio"
+]

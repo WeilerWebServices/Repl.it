@@ -1,0 +1,17 @@
+name = "jest"
+entrypoint = "config.json"
+extensions = [
+  "js"
+]
+packages = []
+setup = [
+  "yarn global add jest"
+]
+
+[run]
+command = [
+  "jest",
+  "--colors",
+  "--config",
+  "/home/runner/config.json"
+]

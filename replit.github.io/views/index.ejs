@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+	<title><%= title %></title>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	<link rel="stylesheet" type="text/css" href="/hljs.min.css">
+	<link
+		href="//fonts.googleapis.com/css?family=Lato:300,400|Questrial|Raleway:400,100,700"
+		rel="stylesheet"
+		type="text/css"
+	/>
+  <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
+  <link rel="shortcut icon" href="https://repl.it/public/images/favicon.ico" type="image/vnd.microsoft.icon" />
+</head>
+<body>
+<%- include('header'); %>
+<a class="repl-link" href="/__repl?fileName=<%= active %>.md">
+	edit on Repl.it
+</a>
+<div class="sidebar">
+<% for (const cat of sidebar) { %>
+	<div>
+		<div class="sidebar-heading"><%= cat.name %></div>
+		<ul class="sidebar-list">
+		<% for (const c of cat.contents) { %>
+			<li>
+				<%
+					const path = cat.slug + '/' + c.slug;
+					const alink = active === path ? 'active' : '';
+				%>
+				<a
+					class="sidebar-link <%= alink %>"
+					href="/<%= path %>"
+				>
+					<%= c.name %>
+				</a>
+			</li>
+		<% } %>
+		</ul>
+	</div>
+<% } %>
+</div>
+<div class="markdown">
+	<%- rendered %>
+</div>
+</body>
+</html>

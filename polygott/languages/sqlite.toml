@@ -1,0 +1,24 @@
+name = "sqlite"
+entrypoint = "main.sql"
+extensions = [
+  "sql"
+]
+packages = [
+  "sqlite3",
+]
+setup = [
+  "/usr/bin/build-prybar-lang.sh sqlite"
+]
+
+[run]
+command = [
+  "sqlite3",
+  "-init",
+  "main.sql",
+]
+
+[tests]
+
+  [tests.hello]
+  code = "select 'hello';"
+  output = "hello\n"

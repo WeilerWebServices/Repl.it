@@ -1,0 +1,49 @@
+name = "go"
+aliases = [
+  "golang"
+]
+entrypoint = "main.go"
+extensions = [
+  "go"
+]
+aptRepos = [
+  "ppa:longsleep/golang-backports"
+]
+
+packages = [
+  "golang-1.14-go",
+  "pkg-config"
+]
+setup = [
+  "go get -u github.com/saibing/bingo"
+]
+
+[compile]
+command = [
+  "go",
+  "build",
+  "-o",
+  "main"
+]
+
+[run]
+command = [
+  "./main"
+]
+
+[tests]
+
+  [tests.hello]
+  code = "package main \nimport \"fmt\" \nfunc main() { \nfmt.Println(\"hello\") \n}"
+  output = "hello\n"
+
+  [tests.version]
+  code = "package main \nimport (\"fmt\" \n\"runtime\") \nfunc main(){fmt.Print(runtime.Version()[:7])}"
+  output = "go1.14."
+
+[languageServer]
+command = [
+  "/bin/bash",
+  "-c",
+  "/opt/homes/go/go/bin/bingo"
+]

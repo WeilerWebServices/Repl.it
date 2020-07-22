@@ -1,0 +1,33 @@
+{
+  "name": "repl.sh",
+  "version": "0.1.7",
+  "description": "Sometimes you need a shell.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "bin": {
+    "repl.sh": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/replit/repl.sh"
+  },
+  "dependencies": {
+    "@nodeguy/channel": "^0.6.3",
+    "chokidar": "^2.0.4",
+    "commander": "^2.16.0",
+    "gitignore-globs": "^0.1.1",
+    "glob": "^7.1.2",
+    "ora": "^2.1.0",
+    "request": "^2.87.0",
+    "request-promise": "^4.2.2",
+    "update-notifier": "^2.5.0",
+    "ws": "^5.2.1"
+  },
+  "engines": {
+    "node": ">=7.9.0"
+  }
+}

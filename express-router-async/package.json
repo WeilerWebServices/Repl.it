@@ -1,0 +1,21 @@
+{
+  "name": "express-router-async",
+  "version": "0.3.0",
+  "description": "Creates an express router augmented with promise handling routes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express",
+    "router",
+    "async",
+    "await"
+  ],
+  "peerDependencies": {
+    "express": "4.x"
+  },
+  "repository": "https://github.com/replit/express-router-async",
+  "author": "Amjad Masad",
+  "license": "MIT"
+}

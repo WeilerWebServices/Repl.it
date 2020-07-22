@@ -1,0 +1,36 @@
+name = "elisp"
+entrypoint = "main.el"
+extensions = [
+  "el",
+  "elc"
+]
+packages = [
+  "emacs26",
+  "sqlite3", # for UPM
+]
+aptRepos = [
+  "ppa:kelleyk/emacs"
+]
+setup = [
+  "git clone https://github.com/cask/cask.git /usr/local/cask",
+  "ln -s /usr/local/cask/bin/cask /usr/local/bin/cask",
+  "cask upgrade-cask",
+  "/usr/bin/build-prybar-lang.sh elisp"
+]
+
+[run]
+command = [
+  "emacs",
+  "-nw",
+  "-Q",
+  "--script",
+  "main.el"
+]
+
+[tests]
+
+  [tests.math]
+  code = """
+(princ (format "2 + 2 = %d\\n" (+ 2 2)))
+"""
+  output = "2 + 2 = 4\n"

@@ -1,0 +1,55 @@
+name = "pygame"
+entrypoint = "main.py"
+extensions = [
+  "py"
+]
+languages = [
+  "python3"
+]
+packages = [
+  "gcc",
+  "libsdl-ttf2.0-dev",
+  "libevent-dev",
+  "libportmidi-dev",
+  "libsdl1.2-dev",
+  "libsdl-image1.2-dev",
+  "libsdl-mixer1.2-dev",
+  "libtk8.6",
+  "xfonts-base",
+  "xfonts-100dpi",
+  "xfonts-75dpi",
+  "xfonts-cyrillic",
+  "fontconfig",
+  "fonts-freefont-ttf",
+  "libfreetype6-dev",
+]
+popularity = 5.0
+setup = [
+  "/opt/virtualenvs/python3/bin/python3 -m pip install pygame",
+]
+[run]
+command = [
+  "python3",
+  "-B",
+  "main.py"
+]
+
+[tests]
+
+  [tests.0]
+  code = "print(__name__)"
+  output = "__main__\n"
+
+  [tests.hello]
+  code = "print(\"hello\")"
+  output = "hello\n"
+
+  [tests.pygame]
+  code = "import pygame"
+  output = "pygame 1.9.6\nHello from the pygame community. https://www.pygame.org/contribute.html\n"
+
+[languageServer]
+command = [
+  "pyls",
+  "-v"
+]
